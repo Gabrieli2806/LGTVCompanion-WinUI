@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LGTVCompanionUI.DevicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LGTVCompanionUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Padding="20">
+        <StackPanel Spacing="12">
+            <!-- Device settings -->
+            <TextBlock Text="Device settings" Style="{StaticResource SubtitleTextBlockStyle}"/>
+
+            <TextBlock Text="Name:"/>
+            <TextBox x:Name="DeviceNameBox" PlaceholderText="Device name"/>
+
+            <TextBlock Text="IP address:"/>
+            <TextBox x:Name="DeviceIpBox" PlaceholderText="192.168.1.100"/>
+
+            <TextBlock Text="MAC address(es):"/>
+            <TextBox x:Name="DeviceMacBox" AcceptsReturn="True" TextWrapping="Wrap" Height="80"/>
+
+            <!-- Network settings -->
+            <TextBlock Text="Network settings" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <TextBlock Text="Wake on LAN method:"/>
+            <ComboBox x:Name="WolMethodCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Automatic"/>
+                <ComboBoxItem Content="Manual"/>
+            </ComboBox>
+
+            <RadioButtons x:Name="WolRadioButtons" Header="WOL target:">
+                <RadioButton Content="Network broadcast address 255.255.255.255"/>
+                <RadioButton Content="Device IP-address"/>
+                <RadioButton Content="Broadcast address according to device IP-address and subnet mask"/>
+            </RadioButtons>
+
+            <TextBlock Text="Subnet mask:"/>
+            <TextBox x:Name="SubnetBox" PlaceholderText="255.255.255.0"/>
+
+            <TextBlock Text="Network adapter:"/>
+            <ComboBox x:Name="NicCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Automatic"/>
+            </ComboBox>
+
+            <!-- Connection settings -->
+            <TextBlock Text="Connection settings" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <TextBlock Text="Firmware:"/>
+            <ComboBox x:Name="SslCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Default"/>
+                <ComboBoxItem Content="Legacy"/>
+            </ComboBox>
+
+            <TextBlock Text="Persistence:"/>
+            <ComboBox x:Name="PersistenceCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Off"/>
+                <ComboBoxItem Content="Persistent"/>
+                <ComboBoxItem Content="Persistent + Keep Alive"/>
+            </ComboBox>
+
+            <!-- Source input settings -->
+            <TextBlock Text="Source input settings" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <TextBlock Text="PC HDMI input:"/>
+            <ComboBox x:Name="SourceCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="HDMI 1"/>
+                <ComboBoxItem Content="HDMI 2"/>
+                <ComboBoxItem Content="HDMI 3"/>
+                <ComboBoxItem Content="HDMI 4"/>
+            </ComboBox>
+
+            <CheckBox x:Name="HdmiInputCheck"
+                      Content="Do not automatically power off device when using it for other activities (e.g. Netflix, Cable TV, ...)"/>
+
+            <CheckBox x:Name="SetHdmiInputCheck"
+                      Content="Switch to PC HDMI-input when powering on"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="Delay (seconds):" VerticalAlignment="Center"/>
+                <NumberBox x:Name="HdmiDelayBox" Minimum="0" Maximum="30" Value="1"
+                           SpinButtonPlacementMode="Inline" Width="120"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
