@@ -92,6 +92,18 @@ With the rise in popularity of using OLED TVs as PC monitors, it is apparent tha
 - The application must be run in a modern windows environment, and any potato running Windows 10 or 11 is fine.
 - A Local Area Network (LAN)
 
+## Building from source
+For step-by-step build instructions, see [Docs/Build how-to.md](Docs/Build%20how-to.md).
+
+**Quick start:**
+```bat
+git clone https://github.com/JPersson77/LGTVCompanion.git
+cd LGTVCompanion
+build.bat
+```
+
+Requires Visual Studio 2022 with the C++ workload and [vcpkg](https://github.com/microsoft/vcpkg). CI builds run automatically on pull requests via GitHub Actions.
+
 ## Commandline arguments
  'LGTV companion.exe" can accept hundreds of command line arguments for controlling the application and managed devices. Please see the documentation for all command line arguments here: [Command line documentation](https://github.com/JPersson77/LGTVCompanion/blob/master/Docs/Commandline.md)
 
