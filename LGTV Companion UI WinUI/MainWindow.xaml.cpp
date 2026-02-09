@@ -542,7 +542,7 @@ namespace winrt::LGTVCompanionUI::implementation
                 bool bFound = false;
                 for (auto& IP : IPs)
                 {
-                    std::vector temp = tools::stringsplit(IP, "/");
+                    std::vector<std::string> temp = tools::stringsplit(IP, "/");
                     if (temp.size() > 1)
                     {
                         std::string ip_addr = temp[0];
@@ -799,7 +799,7 @@ namespace winrt::LGTVCompanionUI::implementation
                 for (int i = 0; i < strlen(CharsToRemove); ++i)
                     edittext.erase(remove(edittext.begin(), edittext.end(), CharsToRemove[i]), edittext.end());
 
-                if (edittext.find_first_not_of(L"0123456789ABCDEF\r") != std::string::npos)
+                if (edittext.find_first_not_of(L"0123456789ABCDEF\r") != std::wstring::npos)
                 {
                     co_await ShowMessageDialogAsync(L"One or several MAC addresses contain illegal characters.\n\nPlease correct before continuing.", L"Error");
                     co_return;
