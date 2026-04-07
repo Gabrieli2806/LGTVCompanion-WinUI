@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LGTVCompanionUI.OptionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LGTVCompanionUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Padding="20">
+        <StackPanel Spacing="12">
+            <!-- Global options -->
+            <TextBlock Text="Global options" Style="{StaticResource SubtitleTextBlockStyle}"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="Power on timeout (seconds):" VerticalAlignment="Center"/>
+                <NumberBox x:Name="TimeoutBox" Minimum="5" Maximum="100"
+                           SpinButtonPlacementMode="Inline" Width="120"/>
+            </StackPanel>
+
+            <TextBlock Text="Log level:"/>
+            <ComboBox x:Name="LogCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Off"/>
+                <ComboBoxItem Content="Info"/>
+                <ComboBoxItem Content="Warning"/>
+                <ComboBoxItem Content="Error"/>
+                <ComboBoxItem Content="Debug"/>
+            </ComboBox>
+
+            <TextBlock Text="Auto update:"/>
+            <ComboBox x:Name="UpdateCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Off"/>
+                <ComboBoxItem Content="Notify Only"/>
+                <ComboBoxItem Content="Silent Install"/>
+            </ComboBox>
+
+            <!-- Shutdown options -->
+            <TextBlock Text="Shutdown options" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <TextBlock Text="Shutdown timing:"/>
+            <ComboBox x:Name="TimingCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Default"/>
+                <ComboBoxItem Content="Early"/>
+                <ComboBoxItem Content="Delayed"/>
+            </ComboBox>
+
+            <!-- Advanced power options -->
+            <TextBlock Text="Advanced power options" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <CheckBox x:Name="IdleModeCheck" Content="Enable user idle mode"/>
+
+            <CheckBox x:Name="RemoteStreamingCheck" Content="Support remote streaming hosts"/>
+
+            <TextBlock Text="Remote streaming display mode:"/>
+            <ComboBox x:Name="RemoteModeCombo" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Display off"/>
+                <ComboBoxItem Content="Display blanked"/>
+            </ComboBox>
+
+            <!-- Multi-monitor support -->
+            <TextBlock Text="Multi-monitor support" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <CheckBox x:Name="TopologyCheck" Content="Support multi-monitor topology"/>
+            <CheckBox x:Name="TopologyBootCheck" Content="Restore topology configuration at logon screen"/>
+
+            <!-- External API -->
+            <TextBlock Text="Advanced" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,0"/>
+
+            <CheckBox x:Name="ExternalApiCheck" Content="Enable external API"/>
+
+            <!-- Log management -->
+            <StackPanel Orientation="Horizontal" Spacing="12" Margin="0,12,0,0">
+                <HyperlinkButton Content="Show log" x:Name="ShowLogLink"/>
+                <HyperlinkButton Content="Clear log" x:Name="ClearLogLink"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

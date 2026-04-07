@@ -1,0 +1,8 @@
+namespace LGTVCompanionUI
+{
+    [default_interface]
+    runtimeclass OptionsPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        OptionsPage();
+    }
+}

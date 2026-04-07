@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LGTVCompanionUI.WhitelistDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LGTVCompanionUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Padding="20" Spacing="12">
+        <TextBlock Text="Process control configuration" Style="{StaticResource SubtitleTextBlockStyle}"/>
+
+        <TextBlock Text="Display name:"/>
+        <TextBox x:Name="DisplayNameBox" PlaceholderText="Friendly name"/>
+
+        <TextBlock Text="Process executable name:"/>
+        <Grid ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="ProcessNameBox" Grid.Column="0" PlaceholderText="process.exe"/>
+            <HyperlinkButton Grid.Column="1" Content="Browse..." x:Name="BrowseLink"/>
+        </Grid>
+
+        <TextBlock Text="Wildcards (*) can be used to match multiple processes (e.g. *player*.exe)"
+                   TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                   FontSize="12"/>
+
+        <TextBlock Text="Rules" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="0,8,0,0"/>
+
+        <CheckBox x:Name="IsRunningCheck" Content="Disable idle mode while process is running"/>
+        <CheckBox x:Name="IsForegroundCheck" Content="Only when process is in foreground" Margin="28,0,0,0"/>
+        <CheckBox x:Name="IsFullscreenCheck" Content="Only when process is fullscreen" Margin="28,0,0,0"/>
+        <CheckBox x:Name="DisplayLockCheck" Content="Disable when video/display wake lock is active" Margin="28,0,0,0"/>
+    </StackPanel>
+</Page>

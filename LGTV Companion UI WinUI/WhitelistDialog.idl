@@ -1,0 +1,8 @@
+namespace LGTVCompanionUI
+{
+    [default_interface]
+    runtimeclass WhitelistDialog : Microsoft.UI.Xaml.Controls.Page
+    {
+        WhitelistDialog();
+    }
+}
